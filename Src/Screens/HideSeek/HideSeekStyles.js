@@ -1,14 +1,21 @@
-import {hp, wp} from '../../Helpers/Responsiveness';
-import {Dimensions, StyleSheet} from 'react-native';
-const {height} = Dimensions.get('window');
+import { hp, wp } from '../../Helpers/Responsiveness';
+import { Dimensions, StyleSheet } from 'react-native';
+const { height } = Dimensions.get('window');
 
 const makeStyles = colors =>
   StyleSheet.create({
     container: {
       flex: 1,
+      backgroundColor: '#36335D'
     },
     main: {
+      // marginTop: wp(-5),
+      flex: 1,
+      backgroundColor: '#fff',
       paddingHorizontal: wp(4),
+      borderTopLeftRadius: wp(3),
+      borderTopRightRadius: wp(3),
+      paddingTop: 10
     },
     freeDrinks: {
       width: '100%',
@@ -61,11 +68,7 @@ const makeStyles = colors =>
       justifyContent: 'center',
     },
     footer: {
-      backgroundColor: '#36335D',
-      height: wp(20),
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginTop: wp(12),
+      marginTop: wp(7),
     },
     bar: {
       backgroundColor: '#FFFFFF',

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   Platform,
   SafeAreaView,
@@ -12,17 +12,20 @@ import {
   View,
   Image,
 } from 'react-native';
-import {styles} from './CountryCodePickerStyles';
+import { styles } from './CountryCodePickerStyles';
 import Modal from 'react-native-modal';
-import {Countries} from './Countries';
-import {hp} from '../../Helpers/Responsiveness';
-import {wp} from '../../Helpers/Responsiveness';
+import { Countries } from './Countries';
+import { hp } from '../../Helpers/Responsiveness';
+import { wp } from '../../Helpers/Responsiveness';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {IPhonePicker} from './interface';
+import { IPhonePicker } from './interface';
 import IconDown from '../../Assets/Icons/IconDown.png';
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();//Ignore all log notifications
 
 export const PhoneNumberPicker = props => {
-  const {onChange, isError, errorMsg} = props;
+  const { onChange, isError, errorMsg } = props;
   const [isModal, setIsModal] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState({
     name: 'United States',
@@ -61,13 +64,13 @@ export const PhoneNumberPicker = props => {
             borderColor: 'grey',
           }}
           onPress={() => setIsModal(true)}>
-          <Text style={{fontSize: wp(5), color: '#C7C4C4'}}>
+          <Text style={{ fontSize: wp(5), color: '#C7C4C4' }}>
             {selectedCountry.dial_code + '  '}
           </Text>
 
           <Image
             source={IconDown}
-            style={{height: wp(3.5), width: wp(3.5), resizeMode: 'contain'}}
+            style={{ height: wp(3.5), width: wp(3.5), resizeMode: 'contain' }}
           />
         </TouchableOpacity>
         <TextInput
@@ -99,8 +102,8 @@ export const PhoneNumberPicker = props => {
           keyboardType={'number-pad'}
         />
       </View>
-      {isError && <Text style={{color: 'red'}}>{errorMsg}</Text>}
-      {!isError && <Text style={{color: 'red'}}>{errorMsg}</Text>}
+      {isError && <Text style={{ color: 'red' }}>{errorMsg}</Text>}
+      {!isError && <Text style={{ color: 'red' }}>{errorMsg}</Text>}
       <Modal
         isVisible={isModal}
         onBackButtonPress={() => setIsModal(false)}
@@ -116,9 +119,9 @@ export const PhoneNumberPicker = props => {
           <ScrollView>
             {Countries.map((d, i) => {
               return (
-                <View style={{backgroundColor: 'white'}} key={d.dial_code}>
+                <View style={{ backgroundColor: 'white' }} key={d.dial_code}>
                   <TouchableOpacity
-                    style={{marginVertical: hp(1), flexDirection: 'row'}}
+                    style={{ marginVertical: hp(1), flexDirection: 'row' }}
                     onPress={() => {
                       setSelectedCountry(d);
                       setIsModal(false);
@@ -126,7 +129,7 @@ export const PhoneNumberPicker = props => {
                     <Text>{d.flag + ' ' + d.name}</Text>
                   </TouchableOpacity>
                   <View
-                    style={{height: hp(0.1), backgroundColor: 'lightgrey'}}
+                    style={{ height: hp(0.1), backgroundColor: 'lightgrey' }}
                   />
                 </View>
               );

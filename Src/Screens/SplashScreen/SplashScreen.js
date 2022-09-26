@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import {
   ImageBackground,
   StyleSheet,
@@ -7,16 +7,16 @@ import {
   Image,
   Text,
 } from 'react-native';
-
+import Logo from '../../Assets/Images/Logo.png'
 import LinearGradient from 'react-native-linear-gradient';
 import Container from '../../Components/Container';
-import {wp, hp} from '../../Helpers/Responsiveness';
+import { wp, hp } from '../../Helpers/Responsiveness';
 import RnText from '../../Components/RnText';
 
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
-const SplashScreen = ({navigation}) => {
+const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     setTimeout(() => {
       navigation.replace('HideSeek');
@@ -25,13 +25,14 @@ const SplashScreen = ({navigation}) => {
   return (
     <LinearGradient colors={['#36335D', '#36335D']} style={styles.splash_image}>
       <View style={styles.textWrapper}>
+        <Image source={Logo} style={styles.logo} />
         <RnText
           fontWeight={'600'}
           size="h3"
           color={'#FFFFFF'}
           textAlign
           margin={[0, 0, 0, 0]}>
-          Splash Screen
+          Hide & Seek
         </RnText>
       </View>
     </LinearGradient>
@@ -52,6 +53,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
   },
+  logo: {
+    width: wp(30),
+    height: wp(30),
+  }
 });
 
 export default SplashScreen;

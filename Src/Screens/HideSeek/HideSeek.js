@@ -1,5 +1,5 @@
-import {View, Text, StatusBar, Image, ScrollView} from 'react-native';
-import React, {useState} from 'react';
+import { View, Text, StatusBar, Image, ScrollView } from 'react-native';
+import React, { useState } from 'react';
 import RnText from '../../Components/RnText';
 import Header from '../../Components/Header';
 import makeStyles from './HideSeekStyles';
@@ -7,11 +7,11 @@ import FreeDrinks from '../../Assets/Images/FreeDrinks.png';
 import MoreVideos from '../../Assets/Icons/MoreVideos.png';
 import AddProfile from '../../Assets/Icons/AddProfile.png';
 import AddIcon from '../../Assets/Icons/AddIcon.png';
-import {PhoneNumberPicker} from '../../Components/CountryCodePicker/CountryCodePicker';
+import { PhoneNumberPicker } from '../../Components/CountryCodePicker/CountryCodePicker';
 import Button from '../../Components/Button';
 import TextInputCustom from '../../Components/TextInput';
 import RadioButton from '../../Components/RadioButton';
-import {wp} from '../../Helpers/Responsiveness';
+import { wp } from '../../Helpers/Responsiveness';
 import VideoPlayer from 'react-native-video-player';
 
 import Video from 'react-native-video';
@@ -21,18 +21,16 @@ const HideSeek = () => {
   const [gender, setGender] = useState('male');
 
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+    <View style={styles.container} >
       <StatusBar backgroundColor="transparent" translucent={true} />
-
       <Header
         back
         title={'Hide & Seek'}
         titleDetail={'Facebook For Bars & Clubs'}
         count
       />
-      <View style={styles.main}>
+      <ScrollView style={styles.main} showsVerticalScrollIndicator={false}>
         <Image source={FreeDrinks} style={styles.freeDrinks} />
-
         <View style={styles.videoWrapper}>
           <VideoPlayer
             video={{
@@ -40,7 +38,7 @@ const HideSeek = () => {
             }}
             videoWidth={1600}
             videoHeight={900}
-            thumbnail={{uri: 'https://i.picsum.photos/id/866/1600/900.jpg'}}
+            thumbnail={{ uri: 'https://media.istockphoto.com/photos/red-play-icon-button-on-white-background-social-media-and-sign-3d-picture-id1348212541?b=1&k=20&m=1348212541&s=170667a&w=0&h=6L67l228RvKoBbEzcw7LtfZDspPL3AQP4P9QZmeziIQ=' }}
           />
         </View>
         <View style={styles.moreVideosWrapper}>
@@ -196,11 +194,10 @@ const HideSeek = () => {
             Continue to exchange instagram
           </RnText>
         </View>
-      </View>
-      <View style={styles.footer}>
-        <View style={styles.bar}></View>
-      </View>
-    </ScrollView>
+        <View style={styles.footer}>
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 
